@@ -1,5 +1,3 @@
-// Rover Object Goes Here
-// ======================
 let rover = {
   diretion: "N",
   x: 0,
@@ -10,19 +8,15 @@ let rover = {
   }]
 };
 
-
-
-
-// ======================
 function turnLeft(rover) {
 
-  if (rover.diretion == "N") {
+  if (rover.diretion === "N") {
     rover.diretion = "W";
-  } else if (rover.diretion == "W") {
+  } else if (rover.diretion === "W") {
     rover.diretion = "S";
-  } else if (rover.diretion == "S") {
+  } else if (rover.diretion === "S") {
     rover.diretion = "E";
-  } else if (rover.diretion == "E") {
+  } else if (rover.diretion === "E") {
     rover.diretion = "N";
   }
 
@@ -52,16 +46,55 @@ function turnRight(rover) {
 function moveForward(rover) {
   switch (rover.diretion) {
     case "N":
-      rover.y = rover.y + 1;
+      if (rover.y < 9) {
+        rover.y = rover.y + 1;
+      }
       break;
     case "E":
-      rover.x = rover.x + 1;
+      if (rover.x < 9) {
+        rover.x = rover.x + 1;
+      }
       break;
     case "S":
-      rover.y = rover.y - 1;
+      if (rover.y > 0) {
+        rover.y = rover.y - 1;
+      }
       break;
     case "W":
-      rover.x = rover.x - 1;
+      if (rover.x > 0) {
+        rover.x = rover.x - 1;
+      }
+      break;
+  }
+  rover.travelLog.push({
+    x: rover.x,
+    y: rover.y
+  })
+
+  console.log("moveForward was called")
+}
+
+function moveBackward(rover) {
+  switch (rover.diretion) {
+    case "N":
+      if (rover.y > 0) {
+        rover.y = rover.y - 1;
+      }
+      break;
+    case "E":
+      if (rover.x > 0) {
+        rover.x = rover.x - 1;
+      }
+      break;
+    case "S":
+      if (rover.y < 9) {
+        rover.y = rover.y + 1;
+      }
+      break;
+    case "W":
+      if (rover.x < 9) {
+        rover.x = rover.x + 1;
+      }
       break;
   }
   rover.travelLog.push({
@@ -70,21 +103,25 @@ function moveForward(rover) {
   })
 
 
-  console.log("moveForward was called")
+  console.log("moveBackward was called")
 
 }
+
 
 function goForward(letras) {
   let p = 0;
   while (p < letras.length) {
     let letra = letras[p];
-    if (letra == "f") {
+    if (letra === "f") {
       moveForward(rover)
     }
-    if (letra == "r") {
+    if (letra === "r") {
       turnRight(rover)
     }
-    if (letra == "l") {
+    if (letra === "l") {
+      turnLeft(rover)
+    }
+    if (letra === "b") {
       turnLeft(rover)
     }
     p++;
