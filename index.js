@@ -46,23 +46,39 @@ function turnRight(rover) {
 function moveForward(rover) {
   switch (rover.diretion) {
     case "N":
-      if (rover.y < 9 && board[rover.y + 1][rover.x]==='') {
-        rover.y = rover.y + 1;
+      if (rover.y < 9) {
+        if (board[rover.y + 1][rover.x] === '') {
+          rover.y = rover.y + 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "E":
-      if (rover.x < 9 && board[rover.y][rover.x + 1]==='') {
-        rover.x = rover.x + 1;
+      if (rover.x < 9) {
+        if (board[rover.y][rover.x + 1] === '') {
+          rover.x = rover.x + 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "S":
-      if (rover.y > 0 && board[rover.y -1][rover.x]==='') {
-        rover.y = rover.y - 1;
+      if (rover.y > 0) {
+        if (board[rover.y - 1][rover.x] === '') {
+          rover.y = rover.y - 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "W":
-      if (rover.x > 0 && board[rover.y][rover.x - 1]==='') {
-        rover.x = rover.x - 1;
+      if (rover.x > 0) {
+        if (board[rover.y][rover.x - 1] === '') {
+          rover.x = rover.x - 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
   }
@@ -77,23 +93,39 @@ function moveForward(rover) {
 function moveBackward(rover) {
   switch (rover.diretion) {
     case "N":
-      if (rover.y > 0 && board[rover.y - 1][rover.x]==='') {
-        rover.y = rover.y - 1;
+      if (rover.y > 0) {
+        if (board[rover.y - 1][rover.x] === '') {
+          rover.y = rover.y - 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "E":
-      if (rover.x > 0 && board[rover.y][rover.x - 1]==='') {
-        rover.x = rover.x - 1;
+      if (rover.x > 0) {
+        if (board[rover.y][rover.x - 1] === '') {
+          rover.x = rover.x - 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "S":
-      if (rover.y < 9 && board[rover.y + 1][rover.x]==='') {
-        rover.y = rover.y + 1;
+      if (rover.y < 9) {
+        if (board[rover.y + 1][rover.x] === '') {
+          rover.y = rover.y + 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
     case "W":
-      if (rover.x < 9 && board[rover.y][rover.x + 1]==='') {
-        rover.x = rover.x + 1;
+      if (rover.x < 9) {
+        if (board[rover.y][rover.x + 1] === '') {
+          rover.x = rover.x + 1;
+        } else {
+          console.log('Obstacle found');
+        }
       }
       break;
   }
@@ -138,17 +170,17 @@ console.log(rover.travelLog);
 
 
 const board = [
-  ['','','o','','','','','','','',],
-  ['','','','','','','o','','','',],
-  ['','','','o','','','','','','',],
-  ['','','','','o','','','','','',],
-  ['','o','','','','','','','','',],
-  ['','','','','','o','','','','',],
-  ['','','','','','','','o','','',],
-  ['','','','','','','','','','o',],
-  ['','','','','','','o','','','',],
-  ['o','','','','','','','','','',],
-  ['','','','','','','','','o','',]
+  ['', '', 'o', '', '', '', '', '', '', '', ],
+  ['', '', '', '', '', '', 'o', '', '', '', ],
+  ['', '', '', 'o', '', '', '', '', '', '', ],
+  ['', '', '', '', 'o', '', '', '', '', '', ],
+  ['', 'o', '', '', '', '', '', '', '', '', ],
+  ['', '', '', '', '', 'o', '', '', '', '', ],
+  ['', '', '', '', '', '', '', 'o', '', '', ],
+  ['', '', '', '', '', '', '', '', '', 'o', ],
+  ['', '', '', '', '', '', 'o', '', '', '', ],
+  ['o', '', '', '', '', '', '', '', '', '', ],
+  ['', '', '', '', '', '', '', '', 'o', '', ]
 ];
 
 
